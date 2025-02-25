@@ -90,8 +90,8 @@ The Identification Phase occurs when an organization becomes aware of a vulnerab
 
 This occurs when an organization takes it upon themselves to assess their web security posture and conducts the following tasks:
 
-- **Dynamic Application Assessments** - Whitehat attackers conduct penetration tests or automated web assessment tools are run against the live web application to identify flaws.
-- **Source code reviews** - Whitehat attackers use manual/automated means to analyze the source code of the web application to identify flaws.
+- **Dynamic Application Assessments** - Ethical attackers conduct penetration tests or automated web assessment tools are run against the live web application to identify flaws.
+- **Source code reviews** - Ethical attackers use manual/automated means to analyze the source code of the web application to identify flaws.
 
 Due to the fact that custom coded web applications are unique, these proactive identification tasks are extremely important as you are not able to rely upon third-party vulnerability notifications.
 
@@ -128,7 +128,7 @@ Care should be taken to attempt to minimize either of these two rules. It may no
 
 #### Positive Security (Allow List) Virtual Patches (**Recommended Solution**)
 
-Positive security model (allow list) is a comprehensive security mechanism that provides an independent input validation envelope to an application. The model specifies the characteristics of valid input (character set, length, etc…) and denies anything that does not conform. By defining rules for every parameter in every page in the application the application is protected by an additional security envelop independent from its code.
+Positive security model (allowlist) is a comprehensive security mechanism that provides an independent input validation envelope to an application. The model specifies the characteristics of valid input (character set, length, etc…) and denies anything that does not conform. By defining rules for every parameter in every page in the application the application is protected by an additional security envelop independent from its code.
 
 ##### Example Allow List ModSecurity Virtual Patch
 
@@ -155,7 +155,7 @@ This virtual patch will inspect the `reqID` parameter value on the specified pag
 
 #### Negative Security (Block List) Virtual Patches
 
-A negative security model (block list) is based on a set of rules that detect specific known attacks rather than allow only valid traffic.
+A negative security model (denylist) is based on a set of rules that detect specific known attacks rather than allow only valid traffic.
 
 ##### Example Block List ModSecurity Virtual Patch
 
@@ -198,7 +198,7 @@ Manual patch creation may become unfeasible as the number of vulnerabilities gro
 
 Three examples include:
 
-- **OWASP ModSecurity Core Rule Set (CRS) Scripts** - The OWASP CRS includes scripts to auto-convert XML output from tools such as [OWASP ZAP into ModSecurity Virtual Patches]. Reference [here](https://www.trustwave.com/en-us/resources/blogs/spiderlabs-blog/modsecurity-advanced-topic-of-the-week-automated-virtual-patching-using-owasp-zed-attack-proxy).
+- **OWASP ModSecurity Core Rule Set (CRS) Scripts** - The OWASP CRS includes scripts to auto-convert XML output from tools such as [ZAP into ModSecurity Virtual Patches]. Reference [here](https://www.trustwave.com/en-us/resources/blogs/spiderlabs-blog/modsecurity-advanced-topic-of-the-week-automated-virtual-patching-using-owasp-zed-attack-proxy).
 - **ThreadFix Virtual Patching** - ThreadFix also includes automated processes of converting imported vulnerability XML data into virtual patches for security tools such as ModSecurity. Reference [here](https://github.com/denimgroup/threadfix/wiki/Waf-Types#mod_security).
 - **Direct Importing to WAF Device** - Many commercial WAF products have the capability to import DAST tool XML report data and automatically adjust their protection profiles.
 
@@ -208,7 +208,7 @@ In order to accurately test out the newly created virtual patches, it may be nec
 
 - Web browser.
 - Command-line web clients such as Curl and Wget.
-- Local Proxy Servers such as [OWASP ZAP](https://www.zaproxy.org/).
+- Local Proxy Servers such as [ZAP](https://www.zaproxy.org/).
 - [ModSecurity AuditViewer](https://web.archive.org/web/20181011065823/http://www.jwall.org/web/audit/viewer.jsp) – which allows you to load a ModSecurity audit log file, manipulate it and then re-inject the data back into any web server.
 
 ### Testing Steps
